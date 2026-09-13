@@ -301,6 +301,46 @@
   </div>
 </section>
 
+<!-- GROUP DEPARTURES -->
+<section id="group-departures" class="packages-bg">
+  <div class="centered">
+    <div class="section-label reveal">Fixed Departures</div>
+    <h2 class="section-title reveal reveal-delay-1">Group Departures<br><span class="package-title-accent">Book Your Seat Before It's Gone</span></h2>
+    <p class="section-sub reveal reveal-delay-2">Scheduled group tours with confirmed departure dates — hotels, food,
+      sightseeing and transport included.</p>
+  </div>
+  <div class="group-departure-grid">
+    {% for package in group_departures %}
+    <div class="pkg-card reveal{{ loop.cycle('', ' reveal-delay-1', ' reveal-delay-2', ' reveal-delay-3') }}">
+      {% if package.badge %}
+      <div class="pkg-badge">{{ package.badge }}</div>
+      {% endif %}
+      <div class="pkg-img pkg-flyer">
+        <img src="{{ url_for('static', filename=package.image) }}" alt="{{ package.name }}" loading="lazy">
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-type">{{ package.type }}</div>
+        <div class="pkg-name">{{ package.name }}</div>
+        <div class="pkg-details">
+          {% for detail in package.details %}
+          <span class="pkg-detail">{{ detail }}</span>
+          {% endfor %}
+        </div>
+        <div class="pkg-price-row">
+          <div class="pkg-price">
+            <span class="price-new{% if package.contact_price %} price-contact{% endif %}">
+              {{ package.price }}{% if not package.contact_price %} <span class="price-pp">/pp</span>{% endif %}
+            </span>
+          </div>
+          {% set booking_message = 'Hi Raj Tours & Travels! I want to book the ' ~ package.name ~ '. Please share details.' %}
+          <a href="https://wa.me/918450982772?text={{ booking_message|urlencode }}" class="pkg-book" target="_blank" rel="noopener">Book Now</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
 <!-- PACKAGES -->
 <section id="packages" class="packages-bg">
   <div class="centered">
@@ -1001,22 +1041,9 @@
         <div class="contact-icon">&#9742;</div>
         <div>
           <div class="contact-label">Call / WhatsApp</div>
-          <div class="contact-val contact-phone-list">
-            <div class="contact-phone-person">
-              <span>Tushar</span>
-              <a href="tel:+917208652193">7208652193</a>
-              <a href="tel:+918693824086">8693824086</a>
-            </div>
-            <div class="contact-phone-person">
-              <span>Lav</span>
-              <a href="tel:+918450982086">8450982086</a>
-              <a href="tel:+918689824086">8689824086</a>
-            </div>
-            <div class="contact-phone-person">
-              <span>Raj</span>
-              <a href="tel:+918450982772">8450982772</a>
-              <a href="tel:+918425941950">8425941950</a>
-            </div>
+          <div class="contact-val contact-phone-list" style="display: flex; flex-direction: column; gap: 8px;">
+            <a href="tel:+918450982772" style="display: block; color: black; text-decoration: none;">8450982772</a>
+            <a href="tel:+918689824086" style="display: block; color: black; text-decoration: none;">8689824086</a>
           </div>
         </div>
       </div>
@@ -1175,6 +1202,58 @@
     </div>
   </div>
 </section>
+
+<!-- GROUP DEPARTURE OFFER POPUP -->
+<dialog id="offerModal" class="offer-modal" aria-label="Group Departure Offers">
+  <button type="button" class="offer-modal-close" aria-label="Close offer" onclick="document.getElementById('offerModal').close()">&times;</button>
+  <div class="offer-modal-head">
+    <div class="offer-brand">
+      <div class="offer-brand-top"><span class="offer-brand-raj">RAJ</span><span class="offer-plane">✈</span></div>
+      <div class="offer-brand-name">TOURS &amp; TRAVELS</div>
+      <div class="offer-brand-tag">TRAVEL · EXPLORE · DISCOVER</div>
+    </div>
+    <div class="offer-brand-script">Your Journey<br>Our Priority</div>
+  </div>
+  <div class="offer-ribbon">
+    <span class="offer-ribbon-main">GROUP DEPARTURE</span>
+    <span class="offer-ribbon-script">Offers</span>
+  </div>
+  <div class="offer-list">
+    {% for package in group_departures %}
+    <div class="offer-row offer-tone-{{ loop.index }}">
+      <img class="offer-row-img" src="{{ url_for('static', filename=package.image) }}" alt="{{ package.name }}" loading="lazy">
+      <div class="offer-row-info">
+        <div class="offer-row-name">{{ package.name }}</div>
+        <div class="offer-row-date">{{ package.details[0] }}</div>
+      </div>
+      <div class="offer-row-price">
+        <span class="offer-row-amount">{{ package.price }}</span>
+        <span class="offer-row-pp">Per Person</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="offer-book"><span>📅</span> BOOK YOUR HOLIDAY NOW <span>→</span></div>
+  <div class="offer-contact">
+    <div class="offer-contact-phone">📞 8689824086 | 8693824086</div>
+    <div class="offer-contact-addr">Shop No 05, First Floor, Vishnu Heights, Patil Nagar Nr Ambivali Stn W (Kalyan)</div>
+  </div>
+  <div class="offer-modal-actions">
+    <a href="https://wa.me/918450982772?text=Hi%20Raj%20Tours%20%26%20Travels!%20I%20saw%20the%20Group%20Departure%20Offers.%20Please%20share%20details." class="offer-modal-btn offer-modal-wa" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="tel:+918450982772" class="offer-modal-btn offer-modal-call">Call Now</a>
+  </div>
+</dialog>
+
+<script>
+  (() => {
+    const modal = document.getElementById('offerModal');
+    if (!modal) return;
+    modal.showModal();
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) modal.close();
+    });
+  })();
+</script>
 
 <script>
   function toggleFaq(el) {

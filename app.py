@@ -182,7 +182,11 @@ PACKAGE_DETAILS = {
 
 @app.route('/')
 def home():
-    return render_template('pages/index.html')
+    group_departures = [
+        package for package in get_package_cards('others', 'Other')
+        if not package['image'].endswith('group-departures.webp')
+    ]
+    return render_template('pages/index.html', group_departures=group_departures)
 
 @app.route('/events')
 def events():
