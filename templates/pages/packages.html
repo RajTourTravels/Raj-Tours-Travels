@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 
+{% block title %}Tour Packages from Kalyan | Domestic &amp; International | Raj Tours &amp; Travels{% endblock %}
+{% block meta_description %}Browse domestic and international tour packages from Kalyan — Kashmir, Kerala, Goa, Shimla Manali, Dubai, Bali, Thailand and more. Book with Raj Tours &amp; Travels.{% endblock %}
+
 {% block content %}
 <!-- PACKAGES HERO -->
 <section class="hero packages-hero">
   <div class="hero-slider">
     <div class="hero-slide active">
-      <img src="https://images.pexels.com/photos/7764191/pexels-photo-7764191.jpeg" alt="Travel Journey"
+      <img src="https://images.pexels.com/photos/7764191/pexels-photo-7764191.jpeg" alt="Domestic and international tour packages by Raj Tours &amp; Travels"
         loading="eager">
     </div>
     <div class="hero-slide">
-      <img src="https://images.pexels.com/photos/5374231/pexels-photo-5374231.jpeg" alt="Tour Destinations"
+      <img src="https://images.pexels.com/photos/5374231/pexels-photo-5374231.jpeg" alt="Popular tour destinations in India"
         loading="eager">
     </div>
     <div class="hero-slide">
-      <img src="https://images.pexels.com/photos/32262460/pexels-photo-32262460.jpeg" alt="Curated Tour Package"
+      <img src="https://images.pexels.com/photos/32262460/pexels-photo-32262460.jpeg" alt="Curated tour package destinations"
         loading="eager">
     </div>
   </div>
@@ -64,7 +67,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">{{ package.type }}</div>
-        <div class="pkg-name">{{ package.name }}</div>
+        <h3 class="pkg-name">{{ package.name }}</h3>
         <div class="pkg-details">
           {% for detail in package.details %}
           <span class="pkg-detail">{{ detail }}</span>
@@ -132,7 +135,7 @@
 
 <!-- END BANNER -->
 <div class="end-banner">
-  <img src="{{ url_for('static', filename='images/banner_end.png') }}" alt="Travel Banner">
+  <img src="{{ url_for('static', filename='images/banner_end.png') }}" alt="">
   <div class="end-banner-overlay">
     <h2 class="end-banner-title">Ready for Your Next Great Adventure?</h2>
     <a href="https://wa.me/918450982772?text=Hi%20Raj%20Tours%20%26%20Travels!%20I%20would%20like%20to%20plan%20a%20trip." class="end-banner-btn" target="_blank" rel="noopener">
