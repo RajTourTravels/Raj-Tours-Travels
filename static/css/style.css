@@ -1265,7 +1265,7 @@ section {
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--text-dark);
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
 
 .pkg-details {

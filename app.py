@@ -252,5 +252,31 @@ def packages():
         package_groups=package_groups,
     )
 
+@app.route('/robots.txt')
+def robots():
+    sitemap_url = url_for('sitemap', _external=True)
+    body = "User-agent: *\nAllow: /\n\nSitemap: {}\n".format(sitemap_url)
+    return app.response_class(body, mimetype='text/plain')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    pages = [
+        (url_for('home', _external=True), '1.0', 'weekly'),
+        (url_for('packages', _external=True), '0.9', 'weekly'),
+        (url_for('contact', _external=True), '0.8', 'monthly'),
+        (url_for('gallery', _external=True), '0.6', 'monthly'),
+        (url_for('events', _external=True), '0.5', 'monthly'),
+    ]
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for loc, priority, changefreq in pages:
+        lines.append(
+            '  <url><loc>{}</loc><changefreq>{}</changefreq><priority>{}</priority></url>'.format(
+                loc, changefreq, priority
+            )
+        )
+    lines.append('</urlset>')
+    return app.response_class('\n'.join(lines), mimetype='application/xml')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5050)

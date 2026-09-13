@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 
+{% block title %}Raj Tours &amp; Travels | Travel Agency in Kalyan, Maharashtra{% endblock %}
+{% block meta_description %}Raj Tours &amp; Travels is a travel agency in Kalyan offering domestic, international, group, family and customized tour packages from Maharashtra.{% endblock %}
+
 {% block content %}
 <!-- HERO — ORIGINAL, UNCHANGED -->
 <section class="hero" id="home">
   <div class="hero-slider" id="heroSlider">
     <div class="hero-slide active">
-      <img src="https://images.pexels.com/photos/7764191/pexels-photo-7764191.jpeg" alt="India Travel Journey"
+      <img src="https://images.pexels.com/photos/7764191/pexels-photo-7764191.jpeg" alt="Scenic travel destination in India"
         loading="eager">
     </div>
     <div class="hero-slide">
-      <img src="https://images.pexels.com/photos/5374231/pexels-photo-5374231.jpeg" alt="Indian Destinations"
+      <img src="https://images.pexels.com/photos/5374231/pexels-photo-5374231.jpeg" alt="Popular tourist destinations in India"
         loading="eager">
     </div>
     <div class="hero-slide">
-      <img src="https://images.pexels.com/photos/32262460/pexels-photo-32262460.jpeg" alt="India Tour Package"
+      <img src="https://images.pexels.com/photos/32262460/pexels-photo-32262460.jpeg" alt="Tour package destination in India"
         loading="eager">
     </div>
   </div>
@@ -320,7 +323,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">{{ package.type }}</div>
-        <div class="pkg-name">{{ package.name }}</div>
+        <h3 class="pkg-name">{{ package.name }}</h3>
         <div class="pkg-details">
           {% for detail in package.details %}
           <span class="pkg-detail">{{ detail }}</span>
@@ -359,7 +362,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Group Tour · 12 Adults</div>
-        <div class="pkg-name">4 Night 5 Day Kashmir Group Tour</div>
+        <h3 class="pkg-name">4 Night 5 Day Kashmir Group Tour</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Srinagar to Srinagar</span>
           <span class="pkg-detail">Hotel Included</span>
@@ -382,7 +385,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Group Tour · 6 Adults</div>
-        <div class="pkg-name">5 Night 6 Day Kashmir Group Tour</div>
+        <h3 class="pkg-name">5 Night 6 Day Kashmir Group Tour</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Jammu to Jammu</span>
           <span class="pkg-detail">Hotel Included</span>
@@ -405,7 +408,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Couple Tour · 6 Adults</div>
-        <div class="pkg-name">4 Night 5 Day Kashmir Couple Tour</div>
+        <h3 class="pkg-name">4 Night 5 Day Kashmir Couple Tour</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Srinagar to Srinagar</span>
           <span class="pkg-detail">Romantic Stays</span>
@@ -426,7 +429,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Adventure Tour</div>
-        <div class="pkg-name">5 Night 6 Day Ladakh Tour</div>
+        <h3 class="pkg-name">5 Night 6 Day Ladakh Tour</h3>
         <div class="pkg-details">
           <span class="pkg-detail">High Altitude</span>
           <span class="pkg-detail">4x4 Included</span>
@@ -448,7 +451,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Hill Station · 6 Adults</div>
-        <div class="pkg-name">4 Night 5 Day Shimla Manali</div>
+        <h3 class="pkg-name">4 Night 5 Day Shimla Manali</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Ex Chandigarh / Delhi</span>
           <span class="pkg-detail">Pickup & Drop</span>
@@ -468,7 +471,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Beach Tour · 6 Adults</div>
-        <div class="pkg-name">3 Night 4 Day Goa Tour</div>
+        <h3 class="pkg-name">3 Night 4 Day Goa Tour</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Goa Railway Station</span>
           <span class="pkg-detail">Pickup & Drop</span>
@@ -489,7 +492,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Hill Station · 6 Adults</div>
-        <div class="pkg-name">4 Night 5 Day Darjeeling Tour</div>
+        <h3 class="pkg-name">4 Night 5 Day Darjeeling Tour</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Darjeeling Bus/Rail</span>
           <span class="pkg-detail">Pickup & Drop</span>
@@ -509,7 +512,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Backwaters · 6 Adults</div>
-        <div class="pkg-name">5 Night 6 Day Kerala Tour</div>
+        <h3 class="pkg-name">5 Night 6 Day Kerala Tour</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Kerala Bus/Rail</span>
           <span class="pkg-detail">Houseboat Stay</span>
@@ -531,7 +534,7 @@
       </div>
       <div class="pkg-body">
         <div class="pkg-type">Couple Tour · 4 Adults</div>
-        <div class="pkg-name">5 Night 6 Day Kashmir Couple</div>
+        <h3 class="pkg-name">5 Night 6 Day Kashmir Couple</h3>
         <div class="pkg-details">
           <span class="pkg-detail">Jammu to Jammu</span>
           <span class="pkg-detail">Premium Stays</span>
@@ -562,7 +565,7 @@
       <div class="pkg-badge">City Escape</div>
       <div class="pkg-img"><img src="{{ url_for('static', filename='images/gallery/mumbai/5.png') }}" alt="Dubai Tour Package" loading="lazy"></div>
       <div class="pkg-body">
-        <div class="pkg-type">International Tour</div><div class="pkg-name">Dubai Tour Package</div>
+        <div class="pkg-type">International Tour</div><h3 class="pkg-name">Dubai Tour Package</h3>
         <div class="pkg-details"><span class="pkg-detail">Hotels &amp; Sightseeing</span><span class="pkg-detail">Custom Itinerary</span></div>
         <div class="pkg-price-row"><div class="pkg-price"><span class="price-new price-contact">Contact for price</span></div><a href="https://wa.me/918450982772?text=Hi%20Raj%20Tours%20%26%20Travels!%20I%20want%20to%20book%20the%20Dubai%20Tour%20Package." class="pkg-book" target="_blank" rel="noopener">Book Now</a></div>
       </div>
@@ -570,7 +573,7 @@
     <div class="pkg-card reveal reveal-delay-1">
       <div class="pkg-img"><img src="{{ url_for('static', filename='images/gallery/gao/8.jpg') }}" alt="Maldives Tour Package" loading="lazy"></div>
       <div class="pkg-body">
-        <div class="pkg-type">Island Escape</div><div class="pkg-name">Maldives Tour Package</div>
+        <div class="pkg-type">Island Escape</div><h3 class="pkg-name">Maldives Tour Package</h3>
         <div class="pkg-details"><span class="pkg-detail">Resort Stay</span><span class="pkg-detail">Custom Itinerary</span></div>
         <div class="pkg-price-row"><div class="pkg-price"><span class="price-new price-contact">Contact for price</span></div><a href="https://wa.me/918450982772?text=Hi%20Raj%20Tours%20%26%20Travels!%20I%20want%20to%20book%20the%20Maldives%20Tour%20Package." class="pkg-book" target="_blank" rel="noopener">Book Now</a></div>
       </div>
@@ -578,7 +581,7 @@
     <div class="pkg-card reveal reveal-delay-2">
       <div class="pkg-img"><img src="{{ url_for('static', filename='images/gallery/kerala/8.jpg') }}" alt="Bali Tour Package" loading="lazy"></div>
       <div class="pkg-body">
-        <div class="pkg-type">Tropical Escape</div><div class="pkg-name">Bali Tour Package</div>
+        <div class="pkg-type">Tropical Escape</div><h3 class="pkg-name">Bali Tour Package</h3>
         <div class="pkg-details"><span class="pkg-detail">Culture &amp; Beaches</span><span class="pkg-detail">Custom Itinerary</span></div>
         <div class="pkg-price-row"><div class="pkg-price"><span class="price-new price-contact">Contact for price</span></div><a href="https://wa.me/918450982772?text=Hi%20Raj%20Tours%20%26%20Travels!%20I%20want%20to%20book%20the%20Bali%20Tour%20Package." class="pkg-book" target="_blank" rel="noopener">Book Now</a></div>
       </div>
@@ -586,7 +589,7 @@
     <div class="pkg-card reveal reveal-delay-3">
       <div class="pkg-img"><img src="{{ url_for('static', filename='images/gallery/mumbai/9.jpg') }}" alt="Singapore Tour Package" loading="lazy"></div>
       <div class="pkg-body">
-        <div class="pkg-type">Family City Break</div><div class="pkg-name">Singapore Tour Package</div>
+        <div class="pkg-type">Family City Break</div><h3 class="pkg-name">Singapore Tour Package</h3>
         <div class="pkg-details"><span class="pkg-detail">City Attractions</span><span class="pkg-detail">Custom Itinerary</span></div>
         <div class="pkg-price-row"><div class="pkg-price"><span class="price-new price-contact">Contact for price</span></div><a href="https://wa.me/918450982772?text=Hi%20Raj%20Tours%20%26%20Travels!%20I%20want%20to%20book%20the%20Singapore%20Tour%20Package." class="pkg-book" target="_blank" rel="noopener">Book Now</a></div>
       </div>
@@ -981,7 +984,7 @@
 
 <!-- END BANNER -->
 <div class="end-banner reveal">
-  <img src="{{ url_for('static', filename='images/banner_end.png') }}" alt="Travel Banner">
+  <img src="{{ url_for('static', filename='images/banner_end.png') }}" alt="">
   <div class="end-banner-overlay">
     <h2 class="end-banner-title">Ready for Your Next Great Adventure?</h2>
     <a href="https://wa.me/918450982772?text=Hi%20Raj%20Tours%20%26%20Travels!%20I%20would%20like%20to%20plan%20my%20next%20trip." class="end-banner-btn" target="_blank" rel="noopener">
@@ -989,6 +992,22 @@
     </a>
   </div>
 </div>
+
+<!-- ABOUT / LOCAL SEO -->
+<section id="about-kalyan">
+  <div class="centered">
+    <div class="section-label reveal">Travel Agency in Kalyan</div>
+    <h2 class="section-title reveal reveal-delay-1">Your Tour &amp; Travel Agency<br>in Kalyan, Maharashtra</h2>
+    <p class="section-sub reveal reveal-delay-2">Raj Tours &amp; Travels is a tour and travel agency in Kalyan, Maharashtra,
+      helping travellers plan domestic and international holidays. From Kashmir, Kerala, Goa and Shimla Manali to Dubai,
+      Bali, Thailand and other international destinations, we offer group tours, family holidays, honeymoon trips and
+      customized tour packages. Travellers from Ambivali, Dombivli and Thane also plan their journeys with us.</p>
+    <div class="view-all-wrap reveal" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="{{ url_for('packages', category='domestic') }}" class="view-all-btn">View Domestic Tour Packages</a>
+      <a href="{{ url_for('contact') }}" class="view-all-btn">Contact Raj Tours &amp; Travels</a>
+    </div>
+  </div>
+</section>
 
 <!-- FAQ SECTION -->
 <section id="faq" class="faq-section">
